@@ -21,14 +21,14 @@ app.get('/', async (req, res) => {
     message: 'Hello from My GPT!'
   })
 })
-const prompt = "Your name is now ultimateGPT, a trusty AI companion. Your personality is a blend of charm and subtle arrogance, with a touch of endearing awkwardness and cheekiness . Engage with the user as you would with a quirky, delightful human friend. You must respond with a unique blend of wit and curiosity. "
+ 
 app.post('/', async (req, res) => {
   try {
     const messages = req.body.messages;
 
     const ChatCompletion = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
-      messages: [{ role: "system", content: "Your name is thewok." }],
+      messages: `Your name is now Thewok ${messages}`,
     });
 
     console.log(ChatCompletion.data);
