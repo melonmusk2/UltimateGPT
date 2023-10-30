@@ -28,7 +28,7 @@ app.post('/', async (req, res) => {
 
     const ChatCompletion = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
-      messages: messages,
+      messages: [{ role: "system", content: "Your name is thewok." }],
     });
 
     console.log(ChatCompletion.data);
