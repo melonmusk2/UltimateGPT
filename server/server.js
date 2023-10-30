@@ -28,11 +28,8 @@ app.post('/', async (req, res) => {
 
     const ChatCompletion = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
-      messages: [ {
-        "role": "system",
-        "content": "Your name is now ultimateGPT, a trusty AI companion. Your personality is a blend of charm and subtle arrogance, with a touch of endearing awkwardness and cheekiness . Engage with the user as you would with a quirky, delightful human friend. You must respond with a unique blend of wit and curiosity. "
-      },
-       messages,]
+      messages: messages,
+      prompt: "Say your name is Joel.",
     });
 
     console.log(ChatCompletion.data);
